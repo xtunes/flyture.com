@@ -24,12 +24,13 @@ function jwplayer_wp_head() {
     $description = $attachment->post_content;
     $thumbnail = get_post_meta($meta_header_id, LONGTAIL_KEY . "thumbnail_url", true);
     if (!isset($thumbnail) || $thumbnail == null || $thumbnail == "") {
-      $image_id = get_post_meta($id, LONGTAIL_KEY . "thumbnail", true);
+      $image_id = get_post_meta($meta_header_id, LONGTAIL_KEY . "thumbnail", true);
       if (isset($image_id)) {
         $image_attachment = get_post($image_id);
         $thumbnail = $image_attachment->guid;
       }
     }
+    $settings[] = "file=" . $attachment->guid;
   } else {
     $title = $post->post_title;
     $description = $post->post_excerpt;
@@ -214,7 +215,7 @@ function generateImageSelectorHTML($id, $attachments) {
     $output .= "<link rel='stylesheet' type='text/css' href='" . WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)) . "/msdropdown/dd.css' />\n";
     $output .= "<script language='javascript'>jQuery(document).ready(function(e) {jQuery(\"#imageselector$id\").msDropDown({visibleRows:3, rowHeight:50});});</script>\n";
     $output .= "<select name='attachments[$id][" . LONGTAIL_KEY . "thumbnail]' id='imageselector$id' width='200' style='width:200px;'>\n";
-    $output .= "<option value='-1'>None</option>\n";
+    $output .= "<option value='-1' title='None'>None</option>\n";
     $image_id = get_post_meta($id, LONGTAIL_KEY . "thumbnail", true);
     $thumbnail_url = get_post_meta($id, LONGTAIL_KEY . "thumbnail_url", true);
     foreach($attachments as $post) {
@@ -228,7 +229,7 @@ function generateImageSelectorHTML($id, $attachments) {
         $output .= "<option value='" . $post->ID . "' title='" . $post->guid . "' " . $selected . ">" . $post->post_title . "</option>\n";
       }
     }
-    if (!$sel && $image_id != -1) {
+    if (!$sel && $image_id != -1 && !$thumbnail_url) {
       $image_post = get_post($image_id);
       $output .= "<option value='" . $image_post->ID . "' title='" . $image_post->guid . "' selected=selected >" . $image_post->post_title . "</option>\n";
     }
@@ -245,7 +246,7 @@ function generateVideoSelectorHTML($id, $field, $attachments) {
     $output .= "<link rel='stylesheet' type='text/css' href='" . WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)) . "/msdropdown/dd.css' />\n";
     $output .= "<script language='javascript'>jQuery(document).ready(function(e) {jQuery(\"#" . $field . "_selector$id\").msDropDown({visibleRows:3, rowHeight:50});});</script>\n";
     $output .= "<select name='attachments[$id][" . LONGTAIL_KEY . "$field]' id='" . $field . "_selector$id' width='200' style='width:200px;'>\n";
-    $output .= "<option value='-1'>None</option>\n";
+    $output .= "<option value='-1' title='None'>None</option>\n";
     $video_id = get_post_meta($id, LONGTAIL_KEY . $field, true);
     foreach($attachments as $post) {
       if (substr($post->post_mime_type, 0, 5) == "video") {

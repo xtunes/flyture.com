@@ -3,11 +3,11 @@
 Plugin Name: JW Player Plugin for WordPress
 Plugin URI: http://www.longtailvideo.com/
 Description: Embed a JW Player for Flash into your WordPress articles.
-Version: 1.4.1
+Version: 1.4.3
 Author: LongTail Video Inc.
 Author URI: http://www.longtailvideo.com/
 
-Copyright 2010  LongTail Video Inc.  (email : plugins@longtailvideo.com)
+Copyright 2011  LongTail Video Inc.  (email : wordpress@longtailvideo.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -59,7 +59,7 @@ if (isset($uploads["error"]) && !empty($uploads["error"])) {
   add_action('admin_notices', create_function('', 'echo \'<div id="message" class="fade updated"><p><strong>There was a problem completing activation of the JW Player Plugin for WordPress.  Please note that the JWPlayer Plugin for WordPress requires that the WordPress uploads directory exists and is writable.  ' . JW_FILE_PERMISSIONS . '</strong></p></div>\';'));
   return;
 }
-$isHttps = $_SERVER["HTTPS"] == "on";
+$isHttps = is_ssl();
 $pluginURL = $isHttps ? str_replace("http://", "https://", WP_PLUGIN_URL) : WP_PLUGIN_URL;
 $uploadsURL = $isHttps ? str_replace("http://", "https://", $uploads["baseurl"]) : $uploads["baseurl"];
 define("JWPLAYER_PLUGIN_DIR", WP_PLUGIN_DIR . "/" . plugin_basename(dirname(__FILE__)));
@@ -104,11 +104,14 @@ function jwplayer_activation() {
 if (version_compare(get_option(LONGTAIL_KEY . "version"), "5.3", ">=")) {
   wp_enqueue_script("jw-embedder", LongTailFramework::getEmbedderURL());
 }
-wp_enqueue_script("google-swfobject", "http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js");
+
+wp_deregister_script("swfobject");
+wp_register_script("swfobject", 'http' . (is_ssl() ? 's' : '') . '://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js',NULL,NULL);
+wp_enqueue_script("swfobject");
 
 add_filter("the_content", "jwplayer_tag_callback", 11);
 add_filter("the_excerpt", "jwplayer_tag_excerpt_callback", 11);
-add_filter("widget_text", "jwplayer_tag_callback", 11);
+add_filter("widget_text", "jwplayer_tag_widget_callback", 11);
 
 // Player configuration and Media Management, limited to administrators.
 if (is_admin()) {

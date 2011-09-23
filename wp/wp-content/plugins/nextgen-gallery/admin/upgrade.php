@@ -107,9 +107,6 @@ function ngg_upgrade() {
 		update_option( "ngg_db_version", NGG_DBVERSION );
 		echo __('finished', 'nggallery') . "<br />\n";
 
-        // better to flush rewrite rules after upgrades
-        $nggRewrite->flush();
-
 		$wpdb->hide_errors();
 		
 		// *** From here we start file operation which could failed sometimes,
@@ -181,6 +178,17 @@ function ngg_upgrade() {
             }
                 
         }
+        
+        if (version_compare($installed_ver, '1.8.0', '<')) {
+            $ngg_options = get_option('ngg_options');
+            // new permalink structure
+            $ngg_options['permalinkSlug']		= 'nggallery';
+            update_option('ngg_options', $ngg_options);
+            echo __('Updated options.', 'nggallery'); 
+        }
+        
+        // better to flush rewrite rules after upgrades
+        $nggRewrite->flush();
 		return;
 	}
     

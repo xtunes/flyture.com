@@ -2,8 +2,8 @@
 Contributors: alexrabe
 Donate link: http://alexrabe.de/donation/
 Tags: photos,flash,slideshow,images,gallery,media,admin,post,photo-albums,pictures,widgets,photo,picture,image,nextgen-gallery,nextgen gallery
-Requires at least: 3.0
-Tested up to: 3.1
+Requires at least: 3.1
+Tested up to: 3.2
 Stable tag: trunk
 
 NextGEN Gallery is a full integrated Image Gallery plugin for WordPress with dozens of options and features.
@@ -13,13 +13,10 @@ NextGEN Gallery is a full integrated Image Gallery plugin for WordPress with doz
 NextGEN Gallery is a full integrated Image Gallery plugin for WordPress with a slideshow option. Before I started writing the plugin I studied all the existing image and gallery plugins for WordPress. 
 Some of them are really good and well designed, but the gap I filled was a simple administration system at the back end which can also handle multiple galleries.
 
-Important Links:
-
-* <a href="http://nextgen-gallery.com/" title="Demonstration page">Demonstration</a>
-* <a href="http://alexrabe.de/wordpress-plugins/nextgen-gallery/languages/" title="Translation and Language files">Language files</a>
-* <a href="http://wordpress.org/extend/plugins/nextgen-gallery/changelog/" title="NextGEN Gallery Changelog">Changelog</a>
-* <a href="http://alexrabe.de/wordpress-plugins/nextgen-gallery/faq/" title="NextGEN Gallery FAQ">NextGEN Gallery FAQ</a>
-* <a href="http://wordpress.org/tags/nextgen-gallery?forum_id=10" title="Wordpress Support Forum">Support Forum</a>
+[Demonstration](http://nextgen-gallery.com/) |
+[FAQ](http://alexrabe.de/wordpress-plugins/nextgen-gallery/faq/)|
+[Support](http://wordpress.org/tags/nextgen-gallery?forum_id=10)|
+[Translations](http://code.google.com/p/nextgen-gallery/downloads/list?q=label:Translation)
 
 = Features =
 
@@ -42,6 +39,7 @@ Important Links:
 * Tag support for images : Append related images to your post, create a image tag-cloud
 * Meta data support : Import EXIF, IPTC or XMP meta data 
 * Sort images feature
+* Support for XML Sitemaps : Add Images to your sitemaps with the <a href="http://wordpress.org/extend/plugins/wordpress-seo/" title="WordPress SEO by Yoast plugin">WordPress SEO by Yoast plugin</a>
 
 == Credits ==
 
@@ -54,7 +52,7 @@ the Free Software Foundation; either version 2 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
@@ -68,7 +66,6 @@ under a Creative Commons License, which allowing you to use, modify and redistri
 them for noncommercial purposes. 
 
 For commercial use please look at the Jeroen's homepage : http://www.longtailvideo.com/
-
 
 == Installation ==
 
@@ -132,6 +129,36 @@ To show the most recent added mages : **[recent max=x ]**
 **And at least request your question here :** http://wordpress.org/tags/nextgen-gallery?forum_id=10
 
 == Changelog == 
+
+= V1.8.3 - 07.08.2011 =
+* Changed : Support for simple custom permalink structures (i.e. /%category%/%postname%/)
+* Bugfix : Sub-Albums in Albums didn't create the correct link 
+* Bugfix : AJAX Pagination didn't work anymore
+* Bugfix : Adding index.php to home_url()
+* Bugfix : Preview picture lost on backend gallery page 2 or higher
+
+= V1.8.2 - 12.07.2011 =
+* Bugfix : Set pagination variables for search result, otherwise update failed
+* Bugfix : Update failed for paged galleries since WordPress 3.2
+
+= V1.8.1 - 18.06.2011 =
+* Bugfix : Special case for pagination, instead of showing page-1, we show the clean url
+* Bugfix : Various PHP notice fixes
+* Bugfix : Typo in rewrite rules
+* Bugfix : Flush rewrite rules during upgrade later
+
+= V1.8.0 - 12.06.2011 =
+* NEW : Full rework of permalink url structure
+* NEW : Adding Google Sitemaps for Images (require WordPress SEO plugin by YOAST )
+* NEW : Support for WPML ( WordPress Multilingual Plugin )
+* NEW : Adding support for arrow key in shutter effect (THX to Flyvans)
+* NEW : Adding sort operation for galleries overview page
+* Changed : Updated pagination to new WP3.1 style
+* Bugfix : Create unique slug in a better way
+* Bugfix : Rework screen options filter for gallery and image table 
+* Bugfix : Empty values in XMLRPC update calls are ignored
+* Bugfix : Create gallery failed when safe-mode on
+* Bugfix : Permalink didn't work in combination with album & imagebrowser
 
 = V1.7.4 - 15.02.2011 =
 * Bugfix : Disallow direct call of ajax file to avoid path disclosure (THX to High-Tech Bridge SA)

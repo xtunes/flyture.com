@@ -2,9 +2,9 @@
 Contributors: mtekk, hakre
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=FD5XEU783BR8U&lc=US&item_name=Breadcrumb%20NavXT%20Donation&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: breadcrumb, breadcrumbs, trail, navigation, menu, widget
-Requires at least: 3.0
-Tested up to: 3.1
-Stable tag: 3.8.1
+Requires at least: 3.1
+Tested up to: 3.2
+Stable tag: 3.9.0
 Adds breadcrumb navigation showing the visitor's path to their current location.
 
 == Description ==
@@ -33,6 +33,12 @@ Don't see your language on the list? Feel free to translate Breadcrumb NavXT and
 Please visit [Breadcrumb NavXT's](http://mtekk.us/code/breadcrumb-navxt/#installation "Go to Breadcrumb NavXT's project page's installation section.") project page for installation and usage instructions.
 
 == Changelog ==
+= 3.9.0 =
+* Behavior change: Settings can not be saved, imported, or exported until any necessary settings updates and/or installs are completed.
+* New feature: Support for WordPress 3.1 custom post type archives.
+* Bug fix: Displays a warning message in the WordPress dashboard if PHP version is too old rather than trying to deactivate and dieing on all pages.
+* Bug fix: Fixed a potential cause for the "options not saved" error.
+* Bug fix: Fixed bug where the “Blog Breadcrumb” was not obeyed on archives.
 = 3.8.1 =
 * Bug fix: Root pages for custom post types should work again.
 * Bug fix: The post_post_root and post_page_root not being saved warning when saving settings should be fixed.

@@ -147,7 +147,7 @@ class nggManageAlbum {
 		$link = (int) $_POST['pageid'];
         
 		// slug must be unique, we use the title for that
-        $slug = nggdb::get_unique_slug( sanitize_title( $name ), 'album' );
+        $slug = nggdb::get_unique_slug( sanitize_title( $name ), 'album', $this->currentID );
         
 		$result = $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->nggalbum SET slug= '%s', name= '%s', albumdesc= '%s', previewpic= %d, pageid= %d WHERE id = '%d'" , $slug, $name, $desc, $prev, $link, $this->currentID ) );
         
@@ -173,7 +173,7 @@ jQuery(document).ready(
 	function()
 	{
         jQuery("#previewpic").nggAutocomplete( {
-            type: 'image',domain: "<?php echo site_url(); ?>/"
+            type: 'image',domain: "<?php echo home_url('index.php'); ?>/"
         });
         
 		jQuery('#selectContainer').sortable( {
@@ -299,7 +299,7 @@ function showDialog() {
 					<input class="button-secondary" type="submit" name="showThickbox" value="<?php esc_attr_e( 'Edit album', 'nggallery'); ?>" onclick="showDialog(); return false;" />
 					<?php } ?>
 					<?php if(nggGallery::current_user_can( 'NextGEN Add/Delete album' )) { ?>
-					<input class="button-secondary action "type="submit" name="delete" value="<?php esc_attr_e('Delete', 'nggallery'); ?>" onclick="javascript:check=confirm('<?php esc_js('Delete album ?','nggallery'); ?>');if(check==false) return false;"/>
+					<input class="button-secondary action "type="submit" name="delete" value="<?php esc_attr_e('Delete', 'nggallery'); ?>" onclick="javascript:check=confirm('<?php echo esc_js('Delete album ?','nggallery'); ?>');if(check==false) return false;"/>
 					<?php } ?>
 				<?php } else { ?>
 					<?php if(nggGallery::current_user_can( 'NextGEN Add/Delete album' )) { ?>

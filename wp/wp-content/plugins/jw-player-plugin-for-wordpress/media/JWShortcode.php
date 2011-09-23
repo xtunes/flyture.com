@@ -4,13 +4,20 @@
  * @file This file contains the necessary functions for parsing the jwplayer
  * shortcode.  Re-implementation of the WordPress functionality was necessary
  * as it did not support '.'
+ * @param string $the_content
+ * @return string
  */
-
 function jwplayer_tag_excerpt_callback($the_content = "") {
   if (get_option(LONGTAIL_KEY . "show_archive") && (is_archive() || is_search())) {
     $tag_regex = '/(.?)\[(jwplayer)\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)/s';
     $the_content = preg_replace_callback($tag_regex, "jwplayer_tag_parser", $the_content);
   } 
+  return $the_content;
+}
+
+function jwplayer_tag_widget_callback($the_content = "") {
+  $tag_regex = '/(.?)\[(jwplayer)\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)/s';
+  $the_content = preg_replace_callback($tag_regex, "jwplayer_tag_parser", $the_content);
   return $the_content;
 }
 
@@ -20,7 +27,7 @@ function jwplayer_tag_excerpt_callback($the_content = "") {
  * @return string The parsed and replaced [jwplayer] tag.
  */
 function jwplayer_tag_callback($the_content = "") {
-  if (!is_archive() && !is_search()) {
+  if (!get_option(LONGTAIL_KEY . "show_archive") || (!is_archive() && !is_search())) {
     $tag_regex = '/(.?)\[(jwplayer)\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)/s';
     $the_content = preg_replace_callback($tag_regex, "jwplayer_tag_parser", $the_content);
   }
@@ -230,7 +237,7 @@ function generateModeString(&$atts, $id) {
   }
   if (!isset($html5) || $html5 == null || $html5 == "") {
     $html5_id = get_post_meta($id, LONGTAIL_KEY . "html5_file_selector", true);
-    if (isset($html5_id)) {
+    if (isset($html5_id) && $html5_id > -1) {
       $html5_attachment = get_post($html5_id);
       $html5 = $html5_attachment->guid;
     }
@@ -241,17 +248,17 @@ function generateModeString(&$atts, $id) {
   }
   if (!isset($download) || $download == null || $download == "") {
     $download_id = get_post_meta($id, LONGTAIL_KEY . "download_file_selector", true);
-    if (isset($download_id)) {
+    if (isset($download_id) && $download_id > -1) {
       $download_attachment = get_post($download_id);
       $download = $download_attachment->guid;
     }
   }
-  if (isset($html5) || isset($download)) {
+  if (!empty($html5) || !empty($download)) {
     $mode = "[{type: \"flash\", src: \"" . LongTailFramework::getPlayerURL() . "\"}";
-    if (isset($html5)) {
+    if (!empty($html5)) {
       $mode .= ", {type: \"html5\", config: {\"file\": \"$html5\", \"streamer\": \"\", \"provider\": \"\"}}";
     }
-    if (isset($download)) {
+    if (!empty($download)) {
       $mode .= ", {type: \"download\", config: {\"file\": \"$download\", \"streamer\": \"\", \"provider\": \"\"}}";
     }
     $mode .= "]";

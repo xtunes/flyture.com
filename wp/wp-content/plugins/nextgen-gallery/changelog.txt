@@ -1,10 +1,40 @@
 NextGEN Gallery
 by Alex Rabe & NextGEN DEV Team
 
-= V1.8.0 - sometimes =
-* TODO : Adding Google Sitemaps for Images (see http://wordpress.org/extend/plugins/google-image-sitemap/ , http://wordpress.org/support/topic/plugin-google-xml-sitemap-for-images-how-to-include-galleries)
+= V1.9.0 - sometimes = 
 * TODO : Facebook connector
-* TODO : Switch to Plupload (http://www.plupload.com/)
+* TODO : Switch to Plupload (http://www.plupload.com/) see also http://wordpress.org/extend/plugins/wplupload/
+* TODO : Rework album page for large amount of galleries
+
+= V1.8.3 - 07.08.2011 =
+* Changed : Support for simple custom permalink structures (i.e. /%category%/%postname%/)
+* Bugfix : Sub-Albums in Albums didn't create the correct link 
+* Bugfix : AJAX Pagination didn't work anymore
+* Bugfix : Adding index.php to home_url()
+* Bugfix : Preview picture lost on backend gallery page 2 or higher
+
+= V1.8.2 - 12.07.2011 =
+* Bugfix : Set pagination variables for search result, otherwise update failed
+* Bugfix : Update failed for paged galleries since WordPress 3.2
+
+= V1.8.1 - 18.06.2011 =
+* Bugfix : Special case for pagination, instead of showing page-1, we show the clean url
+* Bugfix : Various PHP notice fixes
+* Bugfix : Typo in rewrite rules
+* Bugfix : Flush rewrite rules during upgrade later
+
+= V1.8.0 - 12.06.2011 =
+* NEW : Full rework of permalink url structure
+* NEW : Adding Google Sitemaps for Images (require WordPress SEO plugin by YOAST )
+* NEW : Support for WPML ( WordPress Multilingual Plugin )
+* NEW : Adding support for arrow key in shutter effect (THX to Flyvans)
+* NEW : Adding sort operation for galleries overview page
+* Changed : Updated pagination to new WP3.1 style
+* Bugfix : Create unique slug in a better way
+* Bugfix : Rework screen options filter for gallery and image table 
+* Bugfix : Empty values in XMLRPC update calls are ignored
+* Bugfix : Create gallery failed when safe-mode on
+* Bugfix : Permalink didn't work in combination with album & imagebrowser
 
 = V1.7.4 - 15.02.2011 =
 * Bugfix : Disallow direct call of ajax file to avoid path disclosure (THX to High-Tech Bridge SA)
