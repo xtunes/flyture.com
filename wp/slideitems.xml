@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <slideshow>
 
-   <item title="" subtitle="" buttonLabel="Read more" image="/img/1.jpg" content="/comments/away3d-4-0-alpha-release-broomstick"/>
-      <item title="" subtitle="" buttonLabel="Read more" image="/img/2.jpg" content="/comments/away3d-4-0-alpha-release-broomstick"/>
-         <item title="" subtitle="" buttonLabel="Read more" image="/img/3.jpg" content="/comments/away3d-4-0-alpha-release-broomstick"/>
-            <item title="" subtitle="" buttonLabel="Read more" image="/img/4.jpg" content="/comments/away3d-4-0-alpha-release-broomstick"/>
+   <item title="" subtitle="" buttonLabel="Read more" image="/img/1.jpg" content="/?cat=10"/>
+      <item title="" subtitle="" buttonLabel="Read more" image="/img/2.jpg" content="/?cat=10"/>
+         <item title="" subtitle="" buttonLabel="Read more" image="/img/3.jpg" content="/?cat=10"/>
+            <item title="" subtitle="" buttonLabel="Read more" image="/img/4.jpg" content="/?cat=10"/>
 </slideshow>
