@@ -241,6 +241,7 @@ body{font-family:Arial,Helvetica,sans-serif,simsun;font-size:12px;}
 .caseinfo{border-bottom:1px solid #d2cdcc; padding-bottom:39px;margin-top: -1em;}
 .slideshowlink{display:none;}
 .ngg-gallery-thumbnail img{border:none !important;}
+.homeswf{width:910px;margin:40px auto;}
 /**
  * video
  */
