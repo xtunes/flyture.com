@@ -60,12 +60,7 @@
     	<div class="container relative">    		
 		<div class="logo">
 			<a href="/"><img src="/img/logo.gif"></a>
-		</div>
-			<ul class="topnav absolute">
-			   <li><a href="#">English</a></li>
-			   <li><a href="#">中文</a></li>
-			   <li class="last"><a href="/?page_id=16">联系我们</a></li>
-			</ul>
+		</div>			
 		<div class="mainnav absolute">
 			<?php wp_nav_menu( array( 'menu_class' => 'nav-1', 'theme_location' => 'primary' ) ); ?>
 		</div>

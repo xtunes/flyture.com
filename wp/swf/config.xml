@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cu3er>
+	<settings>
+		<general slide_panel_width="826" slide_panel_height="296"></general>
+		<auto_play>
+		  <defaults symbol="circular" time="2"></defaults>
+		  <tweenin y="45" width="30" height="30" tint="0xFFFFFF" alpha="0.5"></tweenin>
+		  <tweenover alpha="1"></tweenover>
+		</auto_play>
+    	<prev_button>
+			<defaults round_corners="5,5,5,5"/>
+			<tweenOver tint="0xFFFFFF" scaleX="1.1" scaleY="1.1"/>
+			<tweenOut tint="0x000000" />
+		</prev_button>
+		
+    	<prev_symbol>
+			<tweenOver tint="0x000000" />			
+		</prev_symbol>
+		
+    	<next_button>
+			<defaults round_corners="5,5,5,5"/>			
+			<tweenOver tint="0xFFFFFF"  scaleX="1.1" scaleY="1.1"/>
+			<tweenOut tint="0x000000" />
+		</next_button>
+		
+    	<next_symbol>
+			<tweenOver tint="0x000000" />
+		</next_symbol>	
+
+		<description>
+		  <defaults heading_text_color="0xFFFFFF" heading_text_margin="3,0,0,0" heading_text_size="14" heading_font="Arial"/>
+		  <tweenIn height="25" y="271" alpha="0.2"/>
+		  <tweenOut height="25" y="271" alpha="0.2"/>
+		  <tweenOver height="25" y="271" alpha="0.2" />
+		</description>
+			
+	</settings>    
+
+	<slides>
+        <slide>
+            <url>images/slide_1.jpg</url>
+			<description>
+			<link>#</link>
+			<heading>飞越精彩，趣在互动! TEL：021-51701671,021-51701672</heading>
+			</description>
+        </slide>
+		<!-- changing transition between first & second slide -->
+        <transition num="3" slicing="vertical" direction="down"/>
+        <slide>
+       		<url>images/slide_2.jpg</url>
+			<description>
+			<link>#</link>
+			<heading>飞越精彩，趣在互动! TEL：021-51701671,021-51701672</heading>
+			</description>
+        </slide>		
+		<!-- changing transition between second & third slide -->
+        <transition num="4" direction="right" shader="flat" />
+		<slide>
+            <url>images/slide_3.jpg</url>
+			<description>
+			<link>#</link>
+			<heading>飞越精彩，趣在互动! TEL：021-51701671,021-51701672</heading>
+			</description>
+        </slide>
+        <!-- transitions properties defined in transitions template -->
+		<transition num="3" slicing="vertical" direction="down"/>
+		<slide>
+       		<url>images/slide_4.jpg</url>
+			<description>
+			<link>#</link>
+			<heading>飞越精彩，趣在互动! TEL：021-51701671,021-51701672</heading>
+			</description>
+        </slide>
+		<transition num="6" slicing="vertical" direction="up" shader="flat" delay="0.05" z_multiplier="4" />
+        <slide>
+       		<url>images/slide_5.jpg</url>
+			<description>
+			<link>#</link>
+			<heading>飞越精彩，趣在互动! TEL：021-51701671,021-51701672</heading>
+			</description>
+        </slide>
+				
+	</slides>
+</cu3er>
+
