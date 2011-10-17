@@ -210,6 +210,16 @@ body{font-family:Arial,Helvetica,sans-serif,simsun;font-size:12px;}
 .mainnav{right:27px;;bottom:10px;;font-size:14px;font-family:microsoft yahei;}
 #main{background: #0172b6 url('../img/bg.jpg') no-repeat 0 0;width:100%;min-height:480px;}
 .mainnav .current_page_item,.mainnav .current-menu-item{font-size:14px;font-weight:bold;background:#0273b7;padding: 5px 9px;}
+.page-id-14 .mainnav .current_page_item,.page-id-14 .mainnav .current-menu-item,.parent-pageid-14 .mainnav .current-page-ancestor{background:#E60012;}
+.mainnav .current-page-ancestor a{color:#fff;font-weight:bold;}
+.page-id-6 .mainnav .current_page_item,.page-id-6.mainnav .current-menu-item{background:#122A88;}
+.category-10 .mainnav .current_page_item,.category-10 .mainnav .current-menu-item{background:#23AC38;}
+.category-11 .mainnav .menu-item-143{background:#23AC38;}
+.category-12 .mainnav .menu-item-143{background:#23AC38;}
+.category-11 .mainnav .menu-item-143 a,.category-12 .mainnav .menu-item-143 a{color:#fff;font-weight:bold;}
+.page-id-18 .mainnav .current_page_item,.page-id-18 .mainnav .current-menu-item{background:#efe000;}
+.page-id-26 .mainnav .current_page_item,.page-id-26 .mainnav .current-menu-item{background:#1b9b93;}
+.page-id-16 .mainnav .current_page_item,.page-id-16 .mainnav .current-menu-item{background:#fe4902;}
 .mainnav .current_page_item a,.mainnav .current-menu-item a{color:#fff!important;}
 .footer{padding-top:25px;line-height:22px;border-top:1px solid #c4c4c4;margin-top:1px;}
 .address{float:left;}
@@ -228,6 +238,12 @@ body{font-family:Arial,Helvetica,sans-serif,simsun;font-size:12px;}
 .content{background:#fff;width:747px;min-height:570px;}
 .breadcrumbs{margin:18px 0 0 48px;}
 .breadcrumbs a{color:#9c9b97;}
+.page-id-14 .breadcrumbs span,.parent-pageid-14 .breadcrumbs span{color:#E60012;}
+.page-id-6 .breadcrumbs span{color:#122A88;}
+.category-10 .breadcrumbs span,.category-11 .breadcrumbs span,.category-12 .breadcrumbs span{color:#23AC38;}
+.page-id-18 .breadcrumbs span{color:#efe000;}
+.page-id-26 .breadcrumbs span{color:#1b9b93;}
+.page-id-16 .breadcrumbs span{color:#fe4902;}
 .detail{margin:30px 0 36px 48px;line-height:22px;width:675px;}
 .detail h1{font-size:16px;font-family:microsoft yahei;}
 .detail h2{font-size:14px;}
@@ -242,7 +258,7 @@ body{font-family:Arial,Helvetica,sans-serif,simsun;font-size:12px;}
 .caseinfo{border-bottom:1px solid #d2cdcc; padding-bottom:39px;margin-top: -1em;}
 .slideshowlink{display:none;}
 .ngg-gallery-thumbnail img{border:none !important;}
-.homeswf{width:910px;margin:40px auto;}
+.homeswf{width:910px;margin:24px auto;}
 /**
  * video
  */
